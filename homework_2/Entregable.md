@@ -19,3 +19,5 @@
 ## Soluciones y buenas prácticas
 
 1. **Método agregar libro:** Este método se podría separar en dos métodos `leerDatosDeLibro` y `insertarLibroEnLibreria` para cumplir con SoC.
+
+2. **Método generar reporte:** Separar método en `imprimirReporte` y `calcularDatosReporte`
