@@ -28,10 +28,7 @@ class Libro:
         return base + extra
     
     def es_antiguo(self):
-        if self.anio_publicacion < 1980:
-            return True
-        else:
-            return False
+        return self.anio_publicacion < 1980
     
     def imprimir_datos(self):
         print(f"Título: {self.titulo}")
