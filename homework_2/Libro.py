@@ -6,20 +6,25 @@ class Libro:
         self.paginas = paginas
         self.anio_publicacion = anio_publicacion
         self.disponible = disponible
+        self.popularidadBase = {
+            'novela': 50,
+            'ciencia': 70,
+            'historia': 40
+        }
+        self.popularidadExtra = {
+            'novela': self.paginas / 10,
+            'ciencia': self.paginas / 5,
+            'historia': self.paginas / 8
+        }
     
     def calcular_popularidad(self):
-        if self.genero == 'novela':
-            base = 50
-            extra = self.paginas / 10
-        elif self.genero == 'ciencia':
-            base = 70
-            extra = self.paginas / 5
-        elif self.genero == 'historia':
-            base = 40
-            extra = self.paginas / 8
-        else:
-            base = 10
-            extra = 0
+        base = 10
+        extra = 0
+        
+        if self.genero != '':
+            base = self.popularidadBase[self.genero]
+            extra = self.popularidadExtra[self.genero]
+            
         return base + extra
     
     def es_antiguo(self):
