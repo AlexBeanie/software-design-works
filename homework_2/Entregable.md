@@ -15,3 +15,7 @@
 6. **Tipado de género:** El género se está manejando como un string, lo que podría dar problemas por errores de redacción.
 
 7. **Falta de validaciones:** No se valida que los datos ingresados sean correctos.
+
+## Soluciones y buenas prácticas
+
+1. **Método agregar libro:** Este método se podría separar en dos métodos `leerDatosDeLibro` y `insertarLibroEnLibreria` para cumplir con SoC.

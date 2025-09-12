@@ -3,18 +3,24 @@ from libro import Libro
 class Biblioteca:
     def __init__(self):
         self.libros = []
-    
-    def agregar_libro(self):
+        
+    def leerDatosDeLibro(self):
         titulo = input("Título: ")
         autor = input("Autor: ")
         genero = input("Género (novela/ciencia/historia): ").lower()
         paginas = int(input("Número de páginas: "))
         anio = int(input("Año de publicación: "))
-        
-        l = Libro(titulo, autor, genero, paginas, anio)
+        return [titulo, autor, genero, paginas, anio]
+    
+    def insertarLibroEnLibreria(self, args):
+        l = Libro(args[0], args[1], args[2], args[3], args[4])
         self.libros.append(l)
         print("Libro agregado!")
     
+    def agregar_libro(self):
+        datos = self.leerDatosDeLibro()
+        self.insertarLibroEnLibreria(datos)      
+            
     def generar_reporte(self):
         total = len(self.libros)
         antiguos = 0
