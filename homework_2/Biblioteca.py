@@ -1,4 +1,5 @@
 from libro import Libro
+from libro import Genero
 
 class Biblioteca:
     def __init__(self):
@@ -8,7 +9,7 @@ class Biblioteca:
         datos = {}
         datos["titulo"] = input("Título: ")
         datos["autor"] = input("Autor: ")
-        datos["genero"] = input("Género (novela/ciencia/historia): ").lower()
+        datos["genero"] = Genero(input("Género (novela/ciencia/historia): ").lower()).name
         datos["paginas"] = int(input("Número de páginas: "))
         datos["anio"] = int(input("Año de publicación: "))
         return datos

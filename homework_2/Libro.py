@@ -1,3 +1,11 @@
+from enum import Enum
+
+class Genero(Enum):
+    NOVELA = 'novela'
+    CIENCIA = 'ciencia'
+    HISTORIA = 'historia'
+
+
 class Libro:
     def __init__(self, titulo, autor, genero, paginas, anio_publicacion, disponible=True):
         self.titulo = titulo
@@ -7,14 +15,14 @@ class Libro:
         self.anio_publicacion = anio_publicacion
         self.disponible = disponible
         self.popularidadBase = {
-            'novela': 50,
-            'ciencia': 70,
-            'historia': 40
+            Genero.NOVELA: 50,
+            Genero.CIENCIA: 70,
+            Genero.HISTORIA: 40
         }
         self.popularidadExtra = {
-            'novela': self.paginas / 10,
-            'ciencia': self.paginas / 5,
-            'historia': self.paginas / 8
+            Genero.NOVELA: self.paginas / 10,
+            Genero.CIENCIA: self.paginas / 5,
+            Genero.HISTORIA: self.paginas / 8
         }
     
     def calcular_popularidad(self):
@@ -33,7 +41,7 @@ class Libro:
     def imprimir_datos(self):
         print(f"Título: {self.titulo}")
         print(f"Autor: {self.autor}")
-        print(f"Género: {self.genero}")
+        print(f"Género: {self.genero.value}")
         print(f"Páginas: {self.paginas}")
         print(f"Año: {self.anio_publicacion}")
         print(f"Disponible: {'Sí' if self.disponible else 'No'}")

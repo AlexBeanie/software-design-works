@@ -23,3 +23,7 @@
 3. **Método Calcular popularidad:** Se pueden implementar diccionarios para que se guarden los valores de popularidad base y extra, de modo que es más fácil de modificar o añadir géneros a la clase libro. De este modo se simplifica el método y se cumple con el principio Open/Close.
 
 4. **Método es antiguo:** Se simplifica el método a una sola línea.
+
+5. **Tipado de género:** Se cambia el tipo de variable de género a Enum.
+
+6. **Falta de validaciones:** No se valida que los datos ingresados sean correctos.
