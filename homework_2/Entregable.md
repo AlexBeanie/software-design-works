@@ -26,4 +26,4 @@
 
 5. **Tipado de género:** Se cambia el tipo de variable de género a Enum.
 
-6. **Falta de validaciones:** No se valida que los datos ingresados sean correctos.
+6. **Falta de validaciones:** Se verifican algunos de los datos de entrada.

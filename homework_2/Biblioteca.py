@@ -9,7 +9,7 @@ class Biblioteca:
         datos = {}
         datos["titulo"] = input("Título: ")
         datos["autor"] = input("Autor: ")
-        datos["genero"] = Genero(input("Género (novela/ciencia/historia): ").lower()).name
+        datos["genero"] = Genero[input("Género (NOVELA/CIENCIA/HISTORIA): ").upper()]
         datos["paginas"] = int(input("Número de páginas: "))
         datos["anio"] = int(input("Año de publicación: "))
         return datos
