@@ -5,6 +5,17 @@ class Genero(Enum):
     CIENCIA = 'ciencia'
     HISTORIA = 'historia'
 
+POPULARIDAD_BASE = {
+    Genero.NOVELA: 50,
+    Genero.CIENCIA: 70,
+    Genero.HISTORIA: 40
+}
+
+POPULARIDAD_FACTOR = {
+    Genero.NOVELA: 10,
+    Genero.CIENCIA: 5,
+    Genero.HISTORIA: 8
+}
 
 class Libro:
     def __init__(self, titulo, autor, genero, paginas, anio_publicacion, disponible=True):
@@ -14,24 +25,15 @@ class Libro:
         self.paginas = paginas
         self.anio_publicacion = anio_publicacion
         self.disponible = disponible
-        self.popularidadBase = {
-            Genero.NOVELA: 50,
-            Genero.CIENCIA: 70,
-            Genero.HISTORIA: 40
-        }
-        self.popularidadExtra = {
-            Genero.NOVELA: self.paginas / 10,
-            Genero.CIENCIA: self.paginas / 5,
-            Genero.HISTORIA: self.paginas / 8
-        }
     
     def calcular_popularidad(self):
         base = 10
         extra = 0
         
         if self.genero != '':
-            base = self.popularidadBase[self.genero]
-            extra = self.popularidadExtra[self.genero]
+            base = POPULARIDAD_BASE[self.genero]
+            factor = POPULARIDAD_FACTOR[self.genero]
+            extra = (self.paginas / factor) if factor else 0
             
         return base + extra
     
